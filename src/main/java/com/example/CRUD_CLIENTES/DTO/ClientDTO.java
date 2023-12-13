@@ -1,10 +1,7 @@
 package com.example.CRUD_CLIENTES.DTO;
 
 import com.example.CRUD_CLIENTES.entities.Client;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
@@ -18,7 +15,7 @@ public class ClientDTO {
     private String cpf;
     @Positive(message = "Renda deve ser uma valor positivo")
     private double income;
-    @NotNull()
+    @PastOrPresent(message = "Não pode ser uma data futura")
     private LocalDate birthDate;
     @Positive(message = "Este campo deve ser positivo")
     private int children;
