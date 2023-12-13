@@ -15,8 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ClientService {
-    @Autowired
-    private ClientRepository clientRepository;
+    private final ClientRepository clientRepository;
+
+    public ClientService(ClientRepository clientRepository) {
+        this.clientRepository = clientRepository;
+    }
 
     @Transactional(readOnly = true)
     public ClientDTO findById(Long id) {
