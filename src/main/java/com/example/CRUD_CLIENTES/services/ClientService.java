@@ -2,8 +2,11 @@ package com.example.CRUD_CLIENTES.services;
 
 import com.example.CRUD_CLIENTES.DTO.ClientDTO;
 import com.example.CRUD_CLIENTES.entities.Client;
+import com.example.CRUD_CLIENTES.exceptions.DatabaseException;
+import com.example.CRUD_CLIENTES.exceptions.ResourceNotFoundExeception;
 import com.example.CRUD_CLIENTES.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -45,7 +48,14 @@ public class ClientService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
-        clientRepository.deleteById(id);
+        if (!clientRepository.existsById(id)) {
+            throw new ResourceNotFoundExeception("Cliente não encontrado");
+        }
+        try {
+            clientRepository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DatabaseException("Não foi possi");
+        }
     }
     public void copyDTO(Client client, ClientDTO clientDTO) {
         client.setName(clientDTO.getName());
