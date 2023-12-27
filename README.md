@@ -1,4 +1,4 @@
-CRUD de Clientes - Projeto Spring Boot
+# CRUD de Clientes - Projeto Spring Boot
 
 Bem-vindo ao repositório do CRUD de Clientes! Este projeto foi desenvolvido utilizando Spring Boot, Hibernate, Jakarta Validation, e o banco de dados H2. Durante a implementação, pratiquei os conceitos essenciais de uma API REST, incluindo a criação de DTOs, controllers, services, exceptions, entidades e repositories. Adotei também padrões de commits para manter um histórico claro e compreensível do desenvolvimento.
 Conteúdo do Projeto
