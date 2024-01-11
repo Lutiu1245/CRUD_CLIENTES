@@ -2,13 +2,13 @@ package com.example.CRUD_CLIENTES.DTO;
 
 import java.time.Instant;
 
-public class CustomError {
+public class CustomErrorDTO {
     private Instant instant;
     private Integer status;
     private String error;
     private String path;
 
-    public CustomError(Instant instant, Integer status, String error, String path) {
+    public CustomErrorDTO(Instant instant, Integer status, String error, String path) {
         this.instant = instant;
         this.status = status;
         this.error = error;

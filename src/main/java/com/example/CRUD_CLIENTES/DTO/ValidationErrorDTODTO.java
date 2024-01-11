@@ -4,10 +4,10 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ValidationErrorDTO extends CustomError{
+public class ValidationErrorDTODTO extends CustomErrorDTO {
     private final List<FieldMessageDTO> fieldMessageDTOS = new ArrayList<>();
 
-    public ValidationErrorDTO(Instant instant, Integer status, String error, String path) {
+    public ValidationErrorDTODTO(Instant instant, Integer status, String error, String path) {
         super(instant, status, error, path);
     }
 
